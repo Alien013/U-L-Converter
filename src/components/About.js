@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function About() {
+export default function About(props) {
 
     const [myStyle, setMyStyle] = useState({
         color: "black",
@@ -31,7 +31,7 @@ export default function About() {
   return (
     
     <div className='container'>
-        <h1 className=''>About Us</h1>
+        <h1 className=''style={{color: props.mode === 'light' ? 'black':'white'}}>About Us</h1>
         <div className="accordion bg-dark" id="accordionExample">
              <div className="accordion-item">
                 <h2 className="accordion-header">

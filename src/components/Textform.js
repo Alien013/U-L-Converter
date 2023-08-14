@@ -21,10 +21,10 @@ export default function Textform(props) {
         navigator.clipboard.writeText(text.value);
     }
     
-    const handleSpaces = () => {
-        let newtext = text.split(/[]+/);
-        setText(newtext.join(" "));
-    }
+    // const handleSpaces = () => {
+    //     let newtext = text.split(/[]+/);
+    //     setText(newtext.join(" "));
+    // }
 
 
     const resetOnClick = () => {
@@ -41,10 +41,11 @@ export default function Textform(props) {
     const [text,setText] = useState("Enter text here ");  
 
   return (
+    <>
     <div>
-        <div className='container'>
-            <div className='mb-3'>
-                <label htmlFor='myBox'><h1>{props.heading} </h1></label>
+        <div className='container'  style={{color: props.mode === 'light' ? 'black':'white'}}>
+            <div className='mb-3' style={{color: props.mode === 'light' ? 'black':'white'}}>
+                <label htmlFor='myBox' ><h2> {props.heading}  </h2></label>
                 <textarea className='form-control' value={text} onChange={handleOnChange} id='myBox' rows='10' ></textarea>
             </div>
         </div>
@@ -53,17 +54,18 @@ export default function Textform(props) {
         <button className ="btn btn-primary mx-1" onClick={handleLoClick} >convert to Lowerercase</button>
         <button className ="btn btn-primary mx-1" onClick={resetOnClick} >reset</button>
         <button className ="btn btn-primary mx-1" onClick={handleCopy} >copy</button>
-        <button className ="btn btn-primary mx-1" onClick={handleSpaces} >space hsnfler</button>
-        
-        <div className='container'> 
+        {/* <button className ="btn btn-primary mx-1" onClick={handleSpaces} >space hsnfler</button> */}
+    
+        <div className='container my-3' style={{color: props.mode === 'light' ? 'black':'white'}}> 
             <h2> Your Text Summary</h2>
             <p>{text.split(" ").length} words and {text.length} characters </p>
             <p>{0.008 * text.split(" ").length} minutes to read </p>
         </div>
-        <div className='container'>
+        <div className='container' style={{color: props.mode === 'light' ? 'black':'white'}}>
         <h3>Preview</h3>
             <p>{text}</p>
         </div>
     </div>
+    </>
   )
 }

@@ -7,14 +7,27 @@ import About from './components/About';
 
 function App() {
 
+  const [mode,setMode] = useState('light');
+
+  const toggleMode = ()=> {
+    if(mode === 'light'){
+      setMode('dark');
+      document.body.style.backgroundColor = 'black';
+    }
+    else {
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+    }
+  }
+
   return (
   <>
-    <Navbar title="U/LConvert" AboutText="About" Homepage="Home"/> 
+    <Navbar title="U/LConvert" AboutText="About" Homepage="Home" mode={mode} toggleMode={toggleMode} /> 
     {/* <Navbar />  */}
     <div className="container">
-    <Textform heading="WRITE SOMETHING " />
+    <Textform heading="WRITE SOMETHING" mode={mode} />
     </div>
-    <About />
+    <About mode={mode}/>
   </>
   );
 }
