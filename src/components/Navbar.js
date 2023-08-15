@@ -13,8 +13,8 @@ export default function Navbar(props) {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li className="nav-item" style={{marginRight: '10px'}}>
             <Link  className="nav-Link active" aria-current="page" to="/" >{props.Homepage}</Link>
           </li>
           <li className="nav-item">
