@@ -49,11 +49,11 @@ function App() {
 
     <div className="container my-3">
       <Routes>
-        <Route exact path='/about' element={<About />}/>
-        <Route exact path='/' element={<Textform showAlert={showAlert} heading="WRITE SOMETHING" mode={mode} />}/>
+        <Route exact path='/about' mode={mode} element={<About />}/>
+        <Route exact path='/' element={<Textform showAlert={showAlert} heading="Try UL-Converter- Word Counter, Character Counter" mode={mode} />}/>
       </Routes>
     </div>
-    
+
   </Router>
   </>
   );

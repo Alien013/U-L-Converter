@@ -2,46 +2,30 @@ import React, { useState } from 'react'
 
 export default function About(props) {
 
-    const [myStyle, setMyStyle] = useState({
-        color: "black",
-        backgroundColor: "white",
-        border: "2px solid gray"
-    })
-    const [btntext, setBtnText] = useState("Enable Dark Mode");
-    
-    const toggleStyle = ()=> {
-        if(myStyle.color === "black") {
-            setMyStyle({
-                color: "white",
-                backgroundColor: "black",
-                border: "2px solid gray"
-            })
-            setBtnText("Enable Light Mode");
-        }
-        else {
-            setMyStyle({
-                color: "black",
-                backgroundColor: "white",
-                border: "2px solid gray"
-            }) 
-            setBtnText("Enable Dark Mode");
-        }
+    // const [myStyle, setMyStyle] = useState({
+    //     color: "black",
+    //     backgroundColor: "white",
+    //     border: "2px solid gray"
+    // })
+    let myStyle = {
+        color: props.mode === 'dark'? 'white': 'black',
+        backgroundColor: props.mode === 'dark'? '#042743': 'white',
+        border: '2px solid',
     }
-    
   return (
     
-    <div className='container'>
-        <h1 className=''style={{color: props.mode === 'light' ? 'black':'white'}}>About Us</h1>
+    <div className='container' style={myStyle}>
+        <h1 className='my-3'>About Us</h1>
         <div className="accordion bg-dark" id="accordionExample">
              <div className="accordion-item">
                 <h2 className="accordion-header">
                     <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
+                    <strong>Analyze your text</strong> 
                     </button>
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div className="accordion-body" style={myStyle}>
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    UL-Conerter gives you a way to analyze your text quickly and effieciently.Be it word count or change the words and sentences to uppercase or lowercase as per the way you want. 
                 </div>
             </div>
         </div>
@@ -49,12 +33,12 @@ export default function About(props) {
         <div className="accordion-item">
             <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Accordion Item #2
+                <strong>Free to use</strong> 
                 </button>
             </h2>
             <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div className="accordion-body" style={myStyle}>
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    UL-Converter is a free character counter tool that provides instant character  and word count statistics for a given text. UL-Converter reports the number of words and characters.thus it is suitable for writing text with word/ character limits.
                 </div>
             </div>
         </div>
@@ -62,21 +46,21 @@ export default function About(props) {
         <div className="accordion-item">
             <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Accordion Item #3
+                <strong>Browser Compatible</strong> 
                 </button>
             </h2>
             <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div className="accordion-body" style={myStyle}>
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    This word cocunter softwareworks in any web browsers succh as Chrome, Fiirefox, Internet Explorer, Safari, Opera, Brave. It suits to count characters in facebook, blogs, books, excel documents, PDF documents, essays, etc.
                     </div>
                 </div>
                 
          </div>
         </div> 
 
-        <div className='container my-3'>
+        {/* <div className='container my-3'>
             <button className="btn btn-outline-primary" onClick={toggleStyle} type="button">{btntext}</button>
-        </div>
+        </div> */}
     </div>
   )
 }
