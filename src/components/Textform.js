@@ -6,12 +6,14 @@ export default function Textform(props) {
         console.log("Button was clicked.");
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to uppercase!", "success");
     }
-
+    
     const handleLoClick = () => {
         console.log("Button was clicked.");
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to lowercase!", "success");
     }
     
     const handleCopy = () => {
@@ -19,18 +21,20 @@ export default function Textform(props) {
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text copied to clipboard", "success");
     }
     
     // const handleSpaces = () => {
     //     let newtext = text.split(/[]+/);
     //     setText(newtext.join(" "));
     // }
-
-
+    
+    
     const resetOnClick = () => {
         console.log("Button was clicked.");
         let newText = ' ';
         setText(newText);
+        props.showAlert("Text cleared", "success");
     }
 
     const handleOnChange = (event) => {
